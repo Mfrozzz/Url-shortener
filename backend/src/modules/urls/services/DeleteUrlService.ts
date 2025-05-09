@@ -5,7 +5,7 @@ interface IRequest{
 }
 
 export default class DeleteUrlService {
-    // public async execute({id}:IRequest):Promise<Url>{
-    //     return;
-    // }
+    public async execute({id}:IRequest):Promise<Url>{
+        return;
+    }
 }

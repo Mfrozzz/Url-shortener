@@ -5,7 +5,7 @@ interface IRequest {
 }
 
 export default class CreateUrlService {
-    // public async execute({originalUrl}:IRequest):Promise<Url>{
-    //     return;
-    // }
+    public async execute({originalUrl}:IRequest):Promise<Url>{
+        return;
+    }
 }
