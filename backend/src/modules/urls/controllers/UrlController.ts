@@ -4,6 +4,7 @@ import ShowUrlService from "../services/ShowUrlService";
 import DeleteUrlService from "../services/DeleteUrlService";
 import RedirectUrlService from "../services/RedirectUrlService";
 import UrlSchema from "../model/UrlSchema";
+import ListUrlsService from "../services/ListUrlsService";
 
 export default class UrlController {
     public async create(req: Request, res: Response) {
@@ -48,6 +49,22 @@ export default class UrlController {
         }
     }
 
+    public async list(req: Request, res: Response) {
+        try {
+            const urlService = new ListUrlsService();
+            const urls = await urlService.execute();
+
+            if (!urls || urls.length === 0) {
+                return res.status(404).json({ error: "No URLs found" });
+            }
+
+            return res.status(200).json({urls}) as any;
+        } catch (error) {
+            console.error(error);
+            return res.status(500).json({ error: "Something went wrong" });
+        }
+    }
+
     public async delete(req: Request, res: Response) {
         const { id } = req.params;
 
@@ -72,6 +89,10 @@ export default class UrlController {
         const { shortUrl } = req.params;
 
         try{
+            if (!shortUrl || typeof shortUrl !== "string") {
+                return res.status(400).json({ error: "Invalid short URL" });
+            }
+
             const redirectUrlService = new RedirectUrlService();
             const url = await UrlSchema.findOne({ shortUrl });
 
