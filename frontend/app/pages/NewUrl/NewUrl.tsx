@@ -1,3 +1,4 @@
+import Footer from "~/components/Footer/Footer";
 import FormUrl from "~/components/Form/FormUrl";
 import NavBar from "~/components/NavBar/NavBar";
 
@@ -28,6 +29,7 @@ export default function NewUrl() {
                     <FormUrl />
                 </div>
             </div>
+            <Footer />
         </div>
     );
 }

@@ -1,5 +1,6 @@
 import { Link } from "react-router"
 import NavBar from "~/components/NavBar/NavBar"
+import Footer from "~/components/Footer/Footer"
 
 export default function HomePage() {
 
@@ -24,10 +25,10 @@ export default function HomePage() {
 						<h1 className="text-5xl font-semibold tracking-tight text-balance text-gray-900 sm:text-6xl">
 							Simplify Your Links, Amplify Your Reach
 						</h1>
-						<p className="mt-8 text-base font-medium text-pretty text-gray-500 sm:text-xl/8">
+						<p className="mt-8 text-base font-medium text-pretty text-gray-600 sm:text-xl/8">
 							Transform long, complex URLs into short, shareable links. Perfect for businesses, social media, and personal use.
 						</p>
-						<p className="mt-4 text-md text-gray-600">
+						<p className="mt-4 text-md text-gray-700">
     						Start shortening your URLs today and track their performance with detailed analytics.
 						</p>
 						<div className="mt-10 flex items-center justify-center gap-x-6">
@@ -56,6 +57,7 @@ export default function HomePage() {
 					/>
 				</div>
 			</div>
+			<Footer />
 		</div>
 	)
 }

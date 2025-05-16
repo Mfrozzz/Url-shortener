@@ -1,3 +1,4 @@
+import Footer from "~/components/Footer/Footer";
 import NavBar from "~/components/NavBar/NavBar";
 import UrlList from "~/components/UrlList/UrlList";
 
@@ -22,6 +23,7 @@ export default function ListUrls() {
                     <UrlList />
                 </div>
             </div>
+            <Footer />
         </div>
     );
 }

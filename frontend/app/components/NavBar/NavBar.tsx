@@ -19,8 +19,8 @@ export default function NavBar() {
 				>
 					<div className="flex lg:flex-1">
 						<Link to={"/"} className="-m-1.5 p-1.5">
-							<span className="sr-only">Your Company</span>
-							<img alt="" src={logo} className="h-8 w-auto" />
+							<span className="sr-only">Url Shortener</span>
+							<img alt="link" src={logo} className="h-8 w-auto" />
 						</Link>
 						<p className="text-2xl pl-2 font-bold text-blue-900">
 							Url Shortener

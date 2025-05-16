@@ -20,7 +20,7 @@ export default function UrlList() {
                 const data = await ListShortUrlsService();
                 setUrls(data);
             } catch (err: any) {
-                setError("Erro ao carregar URLs");
+                setError("Error during listing URLs");
             } finally {
                 setLoading(false);
             }
@@ -51,7 +51,7 @@ export default function UrlList() {
     if (!urls.length)
         return (
             <div className="text-center text-gray-500 py-12">
-                Nenhuma URL cadastrada ainda.<br />
+                No URLs.<br />
                 <span className="text-3xl mt-2 inline-block">🔗</span>
             </div>
         );
