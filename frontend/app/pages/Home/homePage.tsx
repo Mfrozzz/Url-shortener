@@ -1,3 +1,4 @@
+import { Link } from "react-router"
 import NavBar from "~/components/NavBar/NavBar"
 
 export default function HomePage() {
@@ -30,12 +31,12 @@ export default function HomePage() {
     						Start shortening your URLs today and track their performance with detailed analytics.
 						</p>
 						<div className="mt-10 flex items-center justify-center gap-x-6">
-							<a
-								href="#"
+							<Link
+								to="/new"
 								className="rounded-md bg-blue-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-blue-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
 							>
 								Shorten Your URL
-							</a>
+							</Link>
 							<a href="https://github.com/Mfrozzz/Url-shortener" className="text-sm/6 font-semibold text-gray-900 cursor-pointer">
 								Learn more <span aria-hidden="true">→</span>
 							</a>

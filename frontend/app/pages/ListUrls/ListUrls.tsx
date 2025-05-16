@@ -1,4 +1,5 @@
 import NavBar from "~/components/NavBar/NavBar";
+import UrlList from "~/components/UrlList/UrlList";
 
 export default function ListUrls() {
     return (
@@ -17,7 +18,9 @@ export default function ListUrls() {
                         className="relative left-[calc(50%-11rem)] aspect-1155/678 w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-linear-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
                     />
                 </div>
-                <p>List Url</p>
+                <div className="pt-2.5">
+                    <UrlList />
+                </div>
             </div>
         </div>
     );

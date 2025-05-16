@@ -1,36 +1,75 @@
+import { useState } from "react";
+import styles from "./formUrl.module.css";
+import CreateShortUrlService from "~/services/CreateShortUrlService";
+
 export default function FormUrl() {
+    const [originalUrl, setOriginalUrl] = useState("");
+    const [shortUrl, setShortUrl] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
 
-    const handleSubmit = () => {
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setError("");
+        setShortUrl("");
+        setLoading(true);
 
-    }
+        try {
+            const data = await CreateShortUrlService(originalUrl);
+            setShortUrl(`http://localhost:3333/api/url/u/${data.shortUrl}`);
+            setOriginalUrl("");
+        } catch (err: any) {
+            setError(err.message || "Something went wrong.");
+        } finally {
+            setLoading(false);
+        }
+    };
 
     return (
-        <div>
-            <form action="#" method="POST" className="mx-auto mt-16 max-w-xl sm:mt-20">
-                <div className="">
-                    <div className="">
-                        <label htmlFor="first-name" className="block text-sm/6 font-semibold text-gray-900">
-                            First name
-                        </label>
-                        <div className="mt-2.5">
-                            <input
-                                id="first-name"
-                                name="first-name"
-                                type="text"
-                                autoComplete="given-name"
-                                className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
-                            />
-                        </div>
-                    </div>
-                    <div className="mt-10">
-                        <button
-                            type="submit"
-                            className="block w-full rounded-md bg-blue-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-xs hover:bg-blue-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-                        >
-                            Let's talk
-                        </button>
-                    </div>
+        <div className="bg-white/80 rounded-xl shadow-lg p-8 max-w-xl mx-auto">
+            <h2 className="text-2xl font-bold text-center text-blue-700 mb-6">Make your URL shortener.</h2>
+            <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                    <label htmlFor="originalUrl" className="block text-sm font-semibold text-gray-700 mb-2">
+                        Put your long link here
+                    </label>
+                    <input
+                        id="originalUrl"
+                        name="originalUrl"
+                        type="url"
+                        placeholder="https://example.com/your-link"
+                        value={originalUrl}
+                        onChange={e => setOriginalUrl(e.target.value)}
+                        className="block w-full rounded-md border border-gray-300 px-4 py-2 text-base text-gray-900 placeholder:text-gray-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition"
+                        required
+                    />
                 </div>
+                <button
+                    type="submit"
+                    disabled={loading}
+                    className="cursor-pointer w-full rounded-md bg-blue-600 px-4 py-2.5 text-center text-base font-semibold text-white shadow hover:bg-blue-700 transition disabled:opacity-60"
+                >
+                    {loading ? (
+                        <div className={styles.loadingContainer}>
+                            <div className={styles.spinner}></div>
+                            <p>Shorting your URL...</p>
+                        </div>
+                    ) : ("Short your URL")}
+                </button>
+                {error && <p className="text-red-600 text-center">{error}</p>}
+                {shortUrl && (
+                    <div className="mt-4 text-center">
+                        <span className="text-gray-700">Your short URL:</span>
+                        <a
+                            href={shortUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block text-blue-600 font-semibold mt-1 hover:underline break-all"
+                        >
+                            {shortUrl}
+                        </a>
+                    </div>
+                )}
             </form>
         </div>
     );
