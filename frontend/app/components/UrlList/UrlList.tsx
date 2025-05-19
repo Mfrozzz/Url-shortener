@@ -75,7 +75,7 @@ export default function UrlList() {
                             <td className="px-4 py-3 break-all max-w-xs">{url.originalUrl}</td>
                             <td className="px-4 py-3">
                                 <a
-                                    href={`/${url.shortUrl}`}
+                                    href={`http://localhost:3333/api/url/u/${url.shortUrl}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-blue-600 hover:underline break-all"
@@ -97,7 +97,7 @@ export default function UrlList() {
                                 <button
                                     onClick={() => handleDelete(url._id)}
                                     className="inline-flex items-center bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded transition"
-                                    title="Deletar"
+                                    title="Delete"
                                 >
                                     <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
