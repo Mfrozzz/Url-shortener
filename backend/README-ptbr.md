@@ -1,49 +1,49 @@
 # Back-end
 
-This is the back-end of the URL Shortener system, developed in Node.js with TypeScript, using Express and MongoDB for data persistence.
+Este é o back-end do sistema URL Shortener, desenvolvido em Node.js com TypeScript, utilizando Express e MongoDB para persistência dos dados.
 
-## Table of Contents 📄
-* [Requirements](#requirements)
-* [Environment Setup](#environment-setup)
+## Sumário 📄
+* [Requisitos](#requisitos)
+* [Configurando Ambiente](#configurando-ambiente)
 * [Endpoints](#endpoints)
 * [Scripts](#scripts)
-* [Folder Structure](#folder-structure)
-* [Versão PT-BR](README-ptbr.md)
+* [Estrutura de Pastas](#estrutura-de-pastas)
+* [Versão EN-US](README.md)
 
 ---
 
-## <span id="requirements">Requirements</span>
+## <span id="requisitos">Requisitos</span>
 
 - Node.js
-- MongoDB (can be local or via Docker)
+- MongoDB (pode ser local ou via Docker)
 
 ---
 
-## <span id="environment-setup">Environment Setup</span>
+## <span id="configurando-ambiente">Configurando Ambiente</span>
 
-1. **Clone the repository:**
+1. **Clone o repositório:**
     ```shell
     git clone https://github.com/Mfrozzz/Url-shortener.git
     cd backend
     ```
 
-2. **Install dependencies:**
+2. **Instale as dependências:**
     ```shell
     npm install
     ```
 
-3. **Create a `.env` file in the project root and add the environment variables:**
+3. **Crie um arquivo `.env` na raiz do projeto e adicione as variáveis de ambiente:**
     ```dotenv
     MONGO_URL=mongodb://localhost:27017/url_shortener
     PORT=3333
     ```
 
-4. **Start MongoDB with Docker (if you don't have it locally):**
+4. **Suba o MongoDB com Docker (caso não tenha local):**
     ```shell
     docker run --name url-shortener-mongo -d -p 27017:27017 mongo:latest
     ```
 
-5. **Start the server:**
+5. **Inicie o servidor:**
     ```shell
     npm run dev
     ```
@@ -55,7 +55,7 @@ This is the back-end of the URL Shortener system, developed in Node.js with Type
 ### URLs
 
 #### POST `/api/url/shorten`
-Creates a new short URL.
+Cria uma nova URL curta.
 - Request Body:
     ```json
     {
@@ -73,7 +73,7 @@ Creates a new short URL.
     ```
 
 #### GET `/api/url/shorten/urls/index`
-Lists all registered URLs.
+Lista todas as URLs cadastradas.
 - Response:
     ```json
     "urls": [
@@ -87,10 +87,10 @@ Lists all registered URLs.
     ```
 
 #### GET `/api/url/u/:shortUrl`
-Redirects to the original URL.
+Redireciona para a URL original.
 
 #### GET `/api/url/shorten/:id`
-Lists the information of the URL by its ID.
+Listas as informações da URL pelo seu ID.
 - Response:
     ```json
     {
@@ -102,19 +102,19 @@ Lists the information of the URL by its ID.
     ```
 
 #### DELETE `/api/url/shorten/:id`
-Removes a registered URL by its ID.
+Remove uma URL cadastrada pelo seu ID.
 
 ---
 
 ## <span id="scripts">Scripts</span>
 
-- `npm run dev`: Starts the server in development mode.
-- `npm start`: Starts the server in production mode.
-- `npm test`: Runs automated tests (if any).
+- `npm run dev`: Inicia o servidor em modo desenvolvimento.
+- `npm start`: Inicia o servidor em modo produção.
+- `npm test`: Executa os testes automatizados (se houver).
 
 ---
 
-## <span id="folder-structure">Folder Structure</span>
+## <span id="estrutura-de-pastas">Estrutura de Pastas</span>
 
 ```
 backend/

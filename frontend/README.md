@@ -1,87 +1,132 @@
-# Welcome to React Router!
+# Front-end
 
-A modern, production-ready template for building full-stack React applications using React Router.
+This is the front-end of the URL Shortener system, built with **React**, **TypeScript**, **React Router**, and **Tailwind CSS**.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
-
-## Features
-
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
-
-## Getting Started
-
-### Installation
-
-Install the dependencies:
-
-```bash
-npm install
-```
-
-### Development
-
-Start the development server with HMR:
-
-```bash
-npm run dev
-```
-
-Your application will be available at `http://localhost:5173`.
-
-## Building for Production
-
-Create a production build:
-
-```bash
-npm run build
-```
-
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+## Table of Contents 📄
+* [Requirements](#requirements)
+* [Environment Setup](#environment-setup)
+* [Scripts](#scripts)
+* [Folder Structure](#folder-structure)
+* [Features](#features)
+* [Endpoints Consumed](#endpoints-consumed)
+* [PT-BR Version](README-ptbr.md)
 
 ---
 
-Built with ❤️ using React Router.
+## <span id="requirements">Requirements</span>
+
+- Node.js (v18+ recommended)
+- npm
+
+---
+
+## <span id="environment-setup">Environment Setup</span>
+
+1. **Clone the repository:**
+    ```shell
+    git clone https://github.com/Mfrozzz/Url-shortener.git
+    cd frontend
+    ```
+
+2. **Install dependencies:**
+    ```shell
+    npm install
+    ```
+
+3. **(Optional) Configure environment variables:**  
+   Create a `.env` file if you want to customize API endpoints (default is `http://localhost:3333`).
+
+4. **Start the development server:**
+    ```shell
+    npm run dev
+    ```
+    The application will be available at `http://localhost:5173`.
+
+---
+
+## <span id="scripts">Scripts</span>
+
+- `npm run dev`: Starts the development server with hot reload.
+- `npm run build`: Builds the application for production.
+- `npm run start`: Serves the production build.
+- `npm run typecheck`: Runs TypeScript type checking.
+
+---
+
+## <span id="folder-structure">Folder Structure</span>
+
+```
+frontend/
+├── .dockerignore
+├── .gitignore
+├── Dockerfile
+├── package.json
+├── package-lock.json
+├── react-router.config.ts
+├── tsconfig.json
+├── vite.config.ts
+├── README.md
+├── README-ptbr.md
+├── .react-router/
+├── node_modules/
+├── public/
+├── app/
+│   ├── app.css
+│   ├── root.tsx
+│   ├── routes.ts
+│   ├── assets/
+│   │   └── linkLogo.png
+│   ├── components/
+│   │   ├── Footer/
+|   |   |   └── Footer.tsx
+│   │   ├── Form/
+|   |   |   ├── formUrl.module.css
+|   |   |   └── FormUrl.tsx
+│   │   ├── NavBar/
+|   |   |   └── NavBar.tsx
+│   │   └── UrlList/
+|   |       ├── urlList.module.css
+|   |       └── UrlList.tsx
+│   ├── pages/
+│   │   ├── Home/
+|   |   |   └── homePage.tsx
+│   │   ├── ListUrls/
+|   |   |   └── ListUrls.tsx
+│   │   └── NewUrl/
+|   |   |   └── NewUrl.tsx
+│   ├── routes/
+|   |   └── home.tsx
+│   └── services/
+│       ├── CreateShortUrlService.ts
+│       ├── DeleteShortUrlService.ts
+│       └── ListShortUrlsService.ts
+└── public/
+    └── favicon.ico
+```
+
+---
+
+## <span id="features">Features</span>
+
+- Modern and responsive UI with Tailwind CSS
+- Create, list, and delete short URLs
+- Copy and open short URLs easily
+- Loading and error feedback
+- Navigation bar and footer components
+- Ready for Docker deployment
+
+---
+
+## <span id="endpoints-consumed">Endpoints Consumed</span>
+
+- `POST   /api/url/shorten` — Create a new short URL
+- `GET    /api/url/shorten/urls/index` — List all URLs
+- `DELETE /api/url/shorten/:id` — Delete a URL
+- `GET    /api/url/u/:shortUrl` — Redirect to the original URL
+
+---
+
+## Styling
+
+This project uses [Tailwind CSS](https://tailwindcss.com/) for fast and modern styling.  
+You can customize or extend the styles as you wish.
