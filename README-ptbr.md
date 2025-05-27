@@ -34,9 +34,27 @@ Url-shortener/
 |    └── Estrutura de Pastas do Back-end
 ├── frontend/
 |    └── Estrutura de Pastas do Front-end
+├── screenshots/
+|    └── Pasta de capturas de tela
 ├── .gitignore
 ├── README-ptbr.md
 └── README.md
 ```
 
-Desenvolvido por [Mfrozzz](https://github.com/Mfrozzz)
+---
+
+## Screenshots
+
+Abaixo algumas capturas de tela da aplicação em uso:
+
+### Página Inicial
+![Home Page](./screenshots/urlShortenerHome.png)
+
+### Criar nova URL curta
+- ![Create Short URL](./screenshots/urlShortenerCreate.png)
+- ![Created Short URL](./screenshots/urlShortenerCreated.png)
+
+### Lista das URLs criadas
+![List URLs](./screenshots/urlShortenerList.png)
+
+Desenvolvido por [Marcos Vinicius Boava](https://github.com/Mfrozzz)

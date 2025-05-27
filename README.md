@@ -34,9 +34,27 @@ Url-shortener/
 |    └── Backend Folder Structure
 ├── frontend/
 |    └── Frontend Folder Structure
+├── screenshots/
+|    └── Screenshots Folder
 ├── .gitignore
 ├── README-ptbr.md
 └── README.md
 ```
 
-Developed by [Mfrozzz](https://github.com/Mfrozzz)
+---
+
+## Screenshots
+
+Below are some screenshots of the application in action:
+
+### Home Page
+![Home Page](./screenshots/urlShortenerHome.png)
+
+### Create Short URL
+- ![Create Short URL](./screenshots/urlShortenerCreate.png)
+- ![Created Short URL](./screenshots/urlShortenerCreated.png)
+
+### List of URLs
+![List URLs](./screenshots/urlShortenerList.png)
+
+Developed by [Marcos Vinicius Boava](https://github.com/Mfrozzz)
